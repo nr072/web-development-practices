@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html>
+
+
+
+
+
+<head>
+
+
+    <title>Assignment 1</title>
+
+    <meta charset="utf-8">
+    <meta name="description" content="A very basic, static web page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+
+</head>
+
+
+
+
+
+<body>
+
+
+    <div id="header">
+        <ul class="navbar">
+            <li>
+                <a href="index.html"><span>Home</span></a>
+            </li>
+            <li>
+                <a href="project.html"><span>Projects</span></a>
+            </li>
+            <li>
+                <a href="other.html"><span>Others</span></a>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+    <div class="outer-cont">
+
+
+        <div class="left-bar-cont">
+            <table summary="">
+                <tr>
+                    <td>
+                        <a href="#personal">Personal information</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#links">Links</a>
+                        <table summary="">
+                            <tr>
+                                <td><a href="#links_internal">Internal</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#links_external">External</a></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#links_other">Other pages</a></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="misc">Miscellaneous</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+
+
+        <div class="main-cont">
+
+            <h2>Here There Be <s>Names</s> the Name</h2>
+
+            <h4>Personal Information</h4>
+            <table id="personal" summary="">
+                <tr>
+                    <td>Address:</td>
+                    <td>
+                        <i>[Information withheld</i>
+                        <br>
+                        <i>Content strictly not necessary for current assignment</i>
+                        <br>
+                        <i>May just as well be filled with dummy data]</i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Hobbies:</td>
+                    <td>
+                        &#10146; Reading &mdash;
+                        <ul>
+                            <li>fiction</li>
+                            <li>non-fiction</li>
+                        </ul>
+                        &#10146; Stay away from reading &mdash;
+                        <ul>
+                            <li>textbooks</li>
+                            <li>poetry</li>
+                        </ul>
+                        &#10146; Checking out new Linux distros
+                        <br>
+                        &#10146; Collecting portable open-source software
+                    </td>
+                </tr>
+                <tr>
+                    <td>Favorite quote:</td>
+                    <td>
+                        <i>Yesterday was history, tomorrow is mystery, but today is a gift. That is why it is called "present".</i>
+                        <br>
+                        <span style="float: right;">&mdash; Master Oogway, Kung Fu Panda</span>
+                    </td>
+                </tr>
+            </table>
+
+            <h4>Links</h4>
+            <table id="links" summary="">
+                <tr id="links_internal">
+                    <td>Internal:</td>
+                    <td>
+                        <ul>
+                            <li><a href="#personal" title="The top section of this page">Personal information</a></li>
+                            <li><a href="#links_internal" title="This set of links, actually">Internal links</a></li>
+                            <li><a href="#links_external" title="The following set of links">External links</a></li>
+                            <li><a href="#links_other" title="Links to a couple of other pages of this site">Other pages</a></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr id="links_external">
+                    <td>External:</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="https://github.com/nanaian/english" target="_blank">English – programming language</a>
+                                <p>Seems interesting, but the <a href="https://esolangs.org/wiki/English" target="_blank">Esolang</a> page makes it look like a joke.</p>
+                            </li>
+                            <li>
+                                <a href="https://www.w3.org/TR/shadow-dom" target="_blank">Shadow DOM – W3C specification</a>
+                                <p class="quote">This specification describes a method of combining multiple DOM trees into one hierarchy and how these trees interact with each other within a document, thus enabling better composition of the DOM.</p>
+                            </li>
+                            <li>
+                                <a href="https://github.com/prettier/prettier" target="_blank">Prettier – code formatter</a>
+                                <p class="quote">Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.</p>
+                            </li>
+                            <li>
+                                <a href="http://joshworth.com/dev/pixelspace/pixelspace_solarsystem.html" target="_blank">Scrollable solar system map</a>
+                                <p>The distance between different solar bodies are claimed to be represented here with an accurate proportion.</p>
+                            </li>
+                            <li>
+                                <a href="https://www.zombie-guide.com/wp-content/uploads/Zombie-Survival-Guide-Max-Brooks.pdf" target="_blank">The Zombie Survival Guide</a>
+                                <p>Here is an excerpt from Wikipedia:</p>
+                                <div class="blockquote">
+                                    <p>The Zombie Survival Guide is a humorous book by American author Max Brooks and published in 2003. It is a survival manual dealing with the fictional potentiality of a zombie attack. It contains detailed plans for the average citizen to survive zombie uprisings of varying intensity and reach, and describes "cases" of zombie outbreaks in history, including an interpretation of <a href="https://en.wikipedia.org/wiki/Roanoke_Colony" target="_blank">Roanoke Colony</a>. The Zombie Survival Guide was also featured on The New York Times Best Seller's list.</p>
+                                    <p>The book is divided into six separate chapters, followed by a list of fictional attacks throughout history and an appendix. ...</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr id="links_other">
+                    <td>Other pages:</td>
+                    <td>
+                        <ul>
+                            <li><a href="project.html" title="Supposed to showcase all assignments of this course">Projects</a></li>
+                            <li><a href="other.html" title="Most likely empty">Others</a></li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+            <h4>Miscellaneous</h4>
+            <div id="misc">
+                <p>Here are some texts that showcase some text formatting done with HTML:</p>
+                <ul>
+                    <li><big title="<big>">Big</big> and <small title="<small>">small</small> texts seem proportionate but the small ones look more pleasant</li>
+                    <li><i title="<i>">Italic</i> and <em title="<em>">emphasis</em> does not mean the same thing &ndash; <i title="<i>">italic</i> is a <em title="<em>">style (visual)</em></li>
+                    <li><b title="<b>">Bold</b> and <strong title="<strong>">strong</strong> seem to share a similar relationship</li>
+                    <li><span style="color: yellow; background: linear-gradient(to right,red,green)">Colorful text</span> looks nice but may not go very well with this site's design</li>
+                </ul>
+                <br>
+                <p>Also, here is a simple table pointing out which HTML markup has been used in which part of the site:</p>
+                <table class="misc-table" summary="">
+                    <tr>
+                        <th>Section</th>
+                        <th>HTML markup</th>
+                    </tr>
+                    <tr>
+                        <td>Top navbar</td>
+                        <td>&lt;header&gt;, &lt;nav&gt;, &lt;ul&gt;, &lt;a&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>Sidebar (left)</td>
+                        <td>&lt;table&gt;, &lt;a&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>Personal Information</td>
+                        <td>&lt;table&gt;, &lt;ul&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>Links</td>
+                        <td>&lt;table&gt;, &lt;ul&gt;, ::before, &lt;p&gt;, &lt;a&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>Miscellaneous</td>
+                        <td>&lt;p&gt;, &lt;ul&gt;, &lt;table&gt;</td>
+                    </tr>
+                    <tr>
+                        <td>Footer</td>
+                        <td>&lt;table&gt;, &lt;a&gt;, &lt;img&gt;, &lt;span&gt;</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div id="footer">
+        <table summary="">
+            <tr>
+                <td class="link">
+                    <a href="https://github.com/nr072/web-development-practices" target="_blank" title="Source code on GitHub">
+                        <img class="logo" src="https://proxy.duckduckgo.com/ip3/github.com.ico" alt="GitHub logo">
+                        <span>GitHub</span>
+                    </a>
+                    <a href="" target="_blank" title="">
+                        <img class="logo" src="https://proxy.duckduckgo.com/ip3/www.piazza.com.ico" alt="Piazza logo">
+                        <span>Piazza</span>
+                    </a>
+                </td>
+                <td>
+                    <span class="page-location"><div></div></span>
+                    <br>
+                    <span class="last-modified"><div></div></span>
+                </td>
+                <td class="reference">
+                    This web page was created for the assignment<br>of the course <a target="_blank" href="https://www.bracu.ac.bd/academics/departments/computer-science-and-engineering/bachelor-science-computer-science-and/cse-0" title="See all CSE ourses">CSE391</a>, <a href="https://bracu.ac.bd" target="_blank">BRAC University</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+</body>
+
+
+
+
+
+<script type="text/javascript" src="index.js"></script>
+
+
+
+
+
+</html>

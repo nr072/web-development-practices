@@ -249,7 +249,7 @@ div#misc li {
 #footer td:nth-child(3) {
     width: 23%;
 }
-#footer td:nth-child(2) span div {
+#footer td:nth-child(2) span + div {
     outline: 1px solid gray;
     margin: 2px;
     padding: 0px 4px;
@@ -275,10 +275,10 @@ div#misc li {
     margin: 0px 2px 0px 0px;
     height: 9px;
 }
-#footer span.page-location::before {
+#footer span.page-location-label::before {
     content: "Location: ";
 }
-#footer span.last-modified::before {
+#footer span.last-modified-label::before {
     content: "Last modified: ";
 }
 #footer td.reference {

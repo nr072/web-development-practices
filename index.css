@@ -282,5 +282,6 @@ div#misc li {
     content: "Last modified: ";
 }
 #footer td.reference {
+    font-size: 10px;
     text-align: right;
 }

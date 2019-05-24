@@ -6,10 +6,11 @@
     --theme-color-2-medium: rgba(160,160,160,1);
     --theme-color-2-light: rgba(200,200,200,1);
     --theme-color-2-lighter: rgba(220,220,220,1);
-    /*--header-height: 50px;*/
+    --header-height: 60px;
     --left-bar-width: 220px;
     --main-section-width: 700px;
     --page-width: calc(var(--left-bar-width) + var(--main-section-width));
+    --dummy-color: #eee;
 }
 * {
     margin: 0px;
@@ -39,9 +40,26 @@ table {
 
 
 
+.dummy {
+    margin: 0px 0px 10px 0px;
+    min-height: 1em;
+    display: block;
+    background-color: var(--dummy-color);
+}
+span.dummy {
+    width: 40%;
+    display: inline-block;
+}
+
+
+
+
 div#header, 
 div#footer {
     padding: 0px 40px;
+}
+div#header.new-style {
+    height: var(--header-height);
 }
 
 

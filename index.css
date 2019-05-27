@@ -1,3 +1,15 @@
+@keyframes loading-circle {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
 :root {
     --theme-color-1: rgba(50,150,200,1);
     --theme-color-1-light: rgba(100,200,250,1);
@@ -11,6 +23,8 @@
     --main-section-width: 700px;
     --page-width: calc(var(--left-bar-width) + var(--main-section-width));
     --dummy-color: #eee;
+    --alert-color: rgba(0,0,0,0.5);
+    --alert-text-color: #fff;
 }
 * {
     margin: 0px;
@@ -57,9 +71,6 @@ span.dummy {
 div#header, 
 div#footer {
     padding: 0px 40px;
-}
-div#header.new-style {
-    height: var(--header-height);
 }
 
 
@@ -302,4 +313,68 @@ div#misc li {
 #footer td.reference {
     font-size: 10px;
     text-align: right;
+}
+
+
+
+
+/* ========================================================================= */
+/* ========================================================================= */
+
+/*                                Project page                               */
+
+/* ========================================================================= */
+/* ========================================================================= */
+
+
+div#uiChangeAlert {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-color: var(--alert-color);
+}
+#uiChangeAlert div.content {
+    margin: 50vh auto 0vh auto;
+    text-align: center;
+    transform: translateY(-50%);
+    color: var(--alert-text-color);
+}
+#uiChangeAlert span.text {
+    line-height: 3em;
+}
+#uiChangeAlert div.graphic:nth-of-type(1) {
+    margin: 20px auto;
+    border-top: 3px solid var(--alert-text-color);
+    height: 100px;
+    width: 3px;
+    animation: loading-circle 3s ease-in-out infinite;
+}
+#uiChangeAlert div.graphic:nth-of-type(2) {
+    margin: auto;
+    margin-top: calc(0px - 100px - 20px);
+    border: 1px solid #aaa;
+    border-radius: 50%;
+    height: 99px;
+    width: 101px;
+    position: relative;
+    /*background-color: red;*/
+}
+
+
+
+
+div#projects div.assignment {
+    display: none;
+}
+
+
+
+
+@keyframes loading-circle {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

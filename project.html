@@ -17,6 +17,12 @@
 
     <link rel="stylesheet" type="text/css" href="index.css">
 
+    <style>
+        div#header {
+            height: var(--header-height);
+        }
+    </style>
+
 
 </head>
 
@@ -27,7 +33,27 @@
 <body>
 
 
-    <div id="header" class="new-style"></div>
+
+
+    <div id="uiChangeAlert">
+        <div class="content">
+            <span class="text">
+                Changing UI ...
+                <br>
+                <big>Revolutionizing the web!</big>
+            </span>
+            <div class="graphic"></div>
+            <div class="graphic"></div>
+            <span class="text">
+                <small>(Not really. Still, please wait a moment.)</small>
+            </span>
+        </div>
+    </div>
+
+
+
+
+    <div id="header"></div>
 
 
 
@@ -46,6 +72,29 @@
                     <tr><td class="dummy"></td></tr>
                     <tr><td class="dummy"></td></tr>
                 </table>
+            </div>
+
+            <div class="real-content" style="display: none">
+                <ul class="menu">
+                    <li class="menu-item">
+                        <span onclick="showAssignment(1)">Assignment 1</span>
+                    </li>
+                    <li class="menu-item">
+                        <span onclick="showAssignment(2)">Assignment 2</span>
+                    </li>
+                    <li class="menu-item nested">
+                        <span onclick="showAssignment(21)">Part 1</span>
+                    </li>
+                    <li class="menu-item nested">
+                        <span onclick="showAssignment(22)">Part 2</span>
+                    </li>
+                    <li class="menu-item nested">
+                        <span onclick="showAssignment(23)">Part 3</span>
+                    </li>
+                    <li class="menu-item">
+                        <span onclick="showAssignment(3)">Assignment 3</span>
+                    </li>
+                </ul>
             </div>
 
         </div>
@@ -76,6 +125,84 @@
                     <div class="dummy"></div>
                 </div>
 
+
+                <div class="real-content">
+
+                    <div id="a2p1" class="assignment">
+                        <div id="converter">
+                            <fieldset>
+                                <div>
+                                    <span class="label">Input:</span>
+                                    <input type="number" name="">
+                                </div>
+                                <div>
+                                    <span class="label">Select units:</span>
+                                    <select>
+                                        <option value="pb-kg">Pound (lb) to kilogram (kg)</option>
+                                        <option value="kg-pb">Kilogram (kg) to pound (lb)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <button onclick="convert()">Convert!</button>
+                                    <span class="result"></span>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div id="quoteCont">
+                            <div class="cont">
+                                <span class="button" onclick="changeQuoteBoxColor(1)"></span>
+                                <span class="button" onclick="changeQuoteBoxColor(2)"></span>
+                                <span class="button" onclick="changeQuoteBoxColor(3)"></span>
+                                <span class="button" onclick="changeQuoteBoxColor(4)"></span>
+                            </div>
+                            <div class="box"></div>
+                        </div>
+                    </div>
+
+                    <div id="a2p2" class="assignment">
+                        <fieldset>
+                            <div>
+                                <span class="label">Input series of numbers:</span>
+                                <span><input type="text" name="" title="Enter numbers separated by a comma only"></span>
+                            </div>
+                            <div>
+                                <span class="label">Maximum:</span>
+                                <span class="result"></span>
+                            </div>
+                            <div>
+                                <span class="label">Minimum:</span>
+                                <span class="result"></span>
+                            </div>
+                            <div>
+                                <span class="label">Summation:</span>
+                                <span class="result"></span>
+                            </div>
+                            <div>
+                                <span class="label">Average:</span>
+                                <span class="result"></span>
+                            </div>
+                            <div>
+                                <span class="label">In reverse order:</span>
+                                <span class="result"></span>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div id="a2p3" class="assignment">
+                        <fieldset>
+                            <textarea></textarea>
+                            <button onclick="a2p3_clear()">Clear</button>
+                            <button onclick="a2p3_capitalize()">Capitalize</button>
+                            <button onclick="a2p3_sort()">Sort</button>
+                            <button onclick="a2p3_reverse()">Reverse</button>
+                            <button onclick="a2p3_trim()">Trim blanks</button>
+                            <button onclick="a2p3_addNumber()">Add number</button>
+                            <button onclick="a2p3_shuffle()">Shuffle</button>
+                        </fieldset>
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
@@ -83,7 +210,7 @@
     </div>
 
 
-    <div id="footer" class="new-style"></div>
+    <div id="footer"></div>
 
 
 </body>
@@ -95,7 +222,364 @@
 <script>
     
 
-    console.log(897);
+    setTimeout(function() {
+        let alert = document.getElementById("uiChangeAlert");
+        alert.style.display = "none";
+        alert.querySelectorAll("div.graphic")[0].style.animationPlayState = "paused";
+            hideAllDummyContent();
+            changeCssFile();
+            showAllRealContent();
+            showQuote();
+            clearAll();
+            showDefaultMenuItemSelected();
+            showDefaultAssignment();
+    }, 4500);
+
+
+
+
+    let minMaxInpField = document.getElementById("a2p2").querySelector("input");
+    minMaxInpField.oninput = function() {
+        calculateForNewSeries(this.value);
+    };
+
+
+
+
+    function hideAllDummyContent() {
+        let dummies = document.getElementsByClassName("dummy-cont");
+        for (let c=0; c<dummies.length; ++c) {
+            dummies[c].style.display = "none";
+        }
+    }
+
+
+
+
+    function changeCssFile() {
+        let link = document.getElementsByTagName("link")[0];
+        link.href = "new.css";
+    }
+
+
+
+
+    function showAllRealContent() {
+        let reals = document.getElementsByClassName("real-content");
+        for (let c=0; c<reals.length; ++c) {
+            reals[c].style.display = "";
+        }
+    }
+
+
+
+
+    function showQuote() {
+        let quotes = [
+            "“I find television very educating. Every time somebody turns on the set, I go into the other room and read a book.” ― Groucho Marx",
+            "“The difference between genius and stupidity is: genius has its limits.” ― Alexandre Dumas-fils",
+            "“Some people never go crazy. What truly horrible lives they must lead.” ― Charles Bukowski",
+            "“The trouble with having an open mind, of course, is that people will insist on coming along and trying to put things in it.” ― Terry Pratchett",
+            "Insanity: doing the same thing over and over again and expecting different results. ― Einstein (allegedly)",
+            "“Be nice to nerds. You may end up working for them. We all could.” ― Charles J. Sykes",
+            "“Give a man a fire and he's warm for a day, but set fire to him and he's warm for the rest of his life.” ― Terry Pratchett",
+            "“Those who believe in telekinetics, raise my hand.” ― Kurt Vonnegut",
+            "\"I'm not a psychopath, I'm just very creative.\" ― Harry James Potter-Evans-Verres",
+        ];
+        let quote = quotes[Math.floor(Math.random()*quotes.length)];
+        document.getElementById("quoteCont").querySelector(".box").innerText = quote;
+    }
+
+
+
+
+    function changeQuoteBoxColor(index) {
+        let pairs = [
+            [ "blue",      "pink",        "firebrick", "arial",   "0.9em" ],
+            [ "red",       "seagreen",    "bisque",    "mono",    "0.7em" ],
+            [ "turquoise", "greenyellow", "darkred",   "calibri", "0.8em" ],
+            [ "maroon",    "lightgreen",  "navy",      "times",   "0.85em" ],
+        ];
+        let quoteBox = document.getElementById("quoteCont").querySelector(".box");
+        quoteBox.style.outlineColor    = pairs[index-1][0];
+        quoteBox.style.backgroundColor = pairs[index-1][1];
+        quoteBox.style.color           = pairs[index-1][2];
+        quoteBox.style.fontFamily      = pairs[index-1][3];
+        quoteBox.style.fontSize        = pairs[index-1][4];
+    }
+
+
+
+
+    function convert() {
+        let converter = document.getElementById("converter");
+        let input = converter.querySelector("input[type='number']").value;
+        let unit = converter.querySelector("select").value;
+        let result;
+        if (input && unit) {
+            if (unit=="pb-kg") {
+                result = (input*0.4536).toFixed(4);
+                result += " kg";
+            } else if (unit=="kg-pb") {
+                result = (input*2.2046).toFixed(4);
+                result += " pb";
+            }
+            converter.querySelector("span.result").innerText = result;
+        } else {
+            alert("Empty or invalid input!");
+        }
+    }
+
+
+
+
+    function clearAll() {
+        clearAllInputs();
+        clearAllSelects();
+        clearAllTextareas();
+        clearSideMenu();
+        hideAllAssignments();
+    }
+
+
+
+
+    function clearAllInputs() {
+        let inputs = document.getElementsByTagName("input");
+        for (let c=0; c<inputs.length; ++c) {
+            inputs[c].value = "";
+        }
+    }
+
+
+
+
+    function clearAllSelects() {
+        let selects = document.getElementsByTagName("select");
+        for (let c=0; c<selects.length; ++c) {
+            selects[c].selectedIndex = 0;
+        }
+    }
+
+
+
+
+    function clearAllTextareas() {
+        let textareas = document.getElementsByTagName("textarea");
+        for (let c=0; c<textareas.length; ++c) {
+            textareas[c].value = "";
+        }
+    }
+
+
+
+
+    function clearSideMenu() {
+        let items = document.querySelectorAll("li.menu-item > span");
+        for (let c=0; c<items.length; ++c) {
+            items[c].style.borderColor = "transparent";
+            items[c].style.backgroundColor = "transparent";
+        }
+    }
+
+
+
+
+    function hideAllAssignments() {
+        let assignments = document.querySelectorAll("div.assignment");
+        for (let c=0; c<assignments.length; ++c) {
+            assignments[c].style.display = "none";
+        }
+    }
+
+
+
+
+    function showDefaultMenuItemSelected() {
+        let def = document.querySelectorAll("li.menu-item > span")[2];
+        def.style.borderColor = "var(--theme-color-1-lighter)";
+        def.style.backgroundColor = "var(--theme-color-1-lightest)";
+    }
+
+
+
+
+    function showDefaultAssignment() {
+        let def = document.getElementById("a2p1");
+        def.style.display = "block";
+    }
+
+
+
+
+    function calculateForNewSeries(input) {
+        if (input[input.length-1]==",") {
+            let inputs = input.split(",");
+            inputs = removeEmptyValueFromArray(inputs);
+            if (inputs.length>0) {
+                for (let c=0; c<inputs.length; ++c) {
+                    inputs[c] = Number(inputs[c]);
+                }
+                let max = Math.max.apply(null,inputs);
+                let min = Math.min.apply(null,inputs);
+                let sum = inputs.reduce(function(acc,currVal) {return acc+currVal});
+                let avg = (sum/inputs.length).toFixed(2);
+                let rev = inputs.reverse().join(", ");
+                showMinMaxResults(max,min,sum,avg,rev);
+            }
+        }
+    }
+
+
+
+
+    function removeEmptyValueFromArray(array) {
+        for (let c=0; c<array.length; ++c) {
+            if (array[c]=="") {
+                array.splice(c,1);
+            }
+        }
+        return array;
+    }
+
+
+
+
+    function showMinMaxResults(max, min, sum, avg, rev) {
+        let minMaxSeries = document.getElementById("a2p2");
+        let results = minMaxSeries.querySelectorAll("span.result");
+        results[0].innerText = max;
+        results[1].innerText = min;
+        results[2].innerText = sum;
+        results[3].innerText = avg;
+        results[4].innerText = rev;
+    }
+
+
+
+
+    function a2p3_clear() {
+        let textbox = document.getElementById("a2p3").querySelector("textarea");
+        textbox.value = "";
+    }
+
+
+
+
+    function a2p3_capitalize() {
+        let textbox = document.getElementById("a2p3").querySelector("textarea");
+        textbox.style.textTransform = "uppercase";
+    }
+
+
+
+
+    function a2p3_sort() {
+        let textbox = document.getElementById("a2p3").querySelector("textarea");
+        let lines = textbox.value.split("\n");
+        lines = removeEmptyValueFromArray(lines);
+        textbox.value = lines.sort().join("\n");
+    }
+
+
+
+
+    function a2p3_reverse() {
+        let textbox = document.getElementById("a2p3").querySelector("textarea");
+        let lines = textbox.value.split("\n");
+        lines = removeEmptyValueFromArray(lines);
+        for (let c=0; c<lines.length; ++c) {
+            lines[c] = lines[c].split("").reverse().join("");
+        }
+        textbox.value = lines.join("\n");
+    }
+
+
+
+
+    function a2p3_trim() {
+        let textbox = document.getElementById("a2p3").querySelector("textarea");
+        let lines = textbox.value.split("\n");
+        lines = removeEmptyValueFromArray(lines);
+        for (let c=0; c<lines.length; ++c) {
+            lines[c] = lines[c].trim();
+        }
+        textbox.value = lines.join("\n");
+    }
+
+
+
+
+    function a2p3_addNumber() {
+        let textbox = document.getElementById("a2p3").querySelector("textarea");
+        let lines = textbox.value.split("\n");
+        for (let c=0; c<lines.length; ++c) {
+            lines[c] = (c+1) + lines[c];
+        }
+        textbox.value = lines.join("\n");
+    }
+
+
+
+
+    function a2p3_shuffle() {
+        let textbox = document.getElementById("a2p3").querySelector("textarea");
+        let lines = textbox.value.split("\n");
+        let randomized = [];
+        let c=0;
+        while (c<lines.length) {
+            let index = Math.floor(Math.random()*lines.length);
+            if (randomized[index]==null) {
+                randomized[index] = lines[c];
+                ++c;
+            }
+        }
+        textbox.value = randomized.join("\n");
+    }
+
+
+
+
+    function showAssignment(num) {
+        if (num==1) {
+            location.href = "index.html";
+        } else {
+            let mIIndex, aIndex;
+            mIIndex = num==2
+                ? 2
+                : num==21
+                    ? 2
+                    : num==22
+                        ? 3
+                        : num==23
+                            ? 4
+                            : num==3
+                                ? 5
+                                : -1;
+            aIndex = num==2
+                ? 0
+                : num==21
+                    ? 0
+                    : num==22
+                        ? 1
+                        : num==23
+                            ? 2
+                            : num==3
+                                ? -1
+                                : -1;
+            if (mIIndex!=-1 && aIndex!=-1) {
+                let menuItem = document.querySelectorAll("li.menu-item > span")[mIIndex];
+                let assignment = document.querySelectorAll("div.assignment")[aIndex];
+                clearSideMenu();
+                menuItem.style.borderColor = "var(--theme-color-1-lighter)";
+                menuItem.style.backgroundColor = "var(--theme-color-1-lightest)";
+                hideAllAssignments();
+                assignment.style.display = "block";
+            } else {
+                alert("Not done yet!");
+            }
+        }
+    }
 
 
 </script>

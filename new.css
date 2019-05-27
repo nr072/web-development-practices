@@ -1,0 +1,212 @@
+:root {
+    --theme-color-1: rgba(50,150,200,1);
+    --theme-color-1-light: rgba(100,200,250,1);
+    --theme-color-1-lighter: rgba(100,200,250,0.6);
+    --theme-color-1-lightest: rgba(100,200,250,0.2);
+    --theme-color-2: rgba(100,100,100,1);
+    --theme-color-2-dark: rgba(50,50,50,1);
+    --theme-color-2-medium: rgba(160,160,160,1);
+    --theme-color-2-light: rgba(200,200,200,1);
+    --theme-color-2-lighter: rgba(220,220,220,1);
+    --header-height: 60px;
+    --left-bar-width: 220px;
+    --alert-color: rgba(0,0,0,0.5);
+    --alert-text-color: #fff;
+    --footer-height: 50px;
+}
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+}
+body {
+    font-family: palatino;
+}
+a {
+    text-decoration: none;
+    color: var(--theme-color-1);
+}
+a:hover {
+    color: var(--theme-color-2);
+}
+li {
+    margin: 0px 0px 0px 40px;
+}
+
+
+
+
+ul.menu li {
+    margin: 0px;
+    list-style: none;
+}
+
+
+
+div#header, 
+div#footer {
+    padding: 0px 40px;
+}
+div.left-bar-cont, 
+div.main-cont {
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+
+
+div#header {
+    height: var(--header-height);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: var(--theme-color-1-light);
+}
+
+
+
+
+div.outer-cont {
+    padding: var(--header-height) 0px 0px 0px;
+    min-height: calc(100% - var(--footer-height));
+    width: 100%;
+    /*overflow-y: auto;*/
+    /*background-color: var(--theme-color-2);*/
+}
+div.left-bar-cont {
+    /*padding: 30px 0px;*/
+    /*height: calc(100% - var(--header-height) - var(--footer-height));*/
+    height: 100%;
+    width: var(--left-bar-width);
+    text-align: right;
+    /*float: left;*/
+    /*background-color: var(--theme-color-2-lighter);*/
+}
+.left-bar-cont .menu-item span {
+    border-left: 6px solid transparent;
+    padding: 20px 60px 20px 0px;
+    width: 100%;
+    font-variant: small-caps;
+    display: inline-block;
+    color: var(--theme-color-2);
+}
+.left-bar-cont .menu-item.nested span {
+    padding: 20px 80px 20px 0px;
+}
+.left-bar-cont .menu-item span:hover {
+    cursor: pointer;
+    background-color: var(--theme-color-2-lighter);
+}
+div.main-cont {
+    height: 100%;
+    padding: 40px;
+    /*background-color: gray;*/
+}
+
+
+
+
+div#projects fieldset {
+    margin: 40px;
+    border-color: gray;
+    padding: 40px;
+    line-height: 2em;
+}
+#projects span.label {
+    text-align: right;
+    display: inline-block;
+}
+
+
+
+
+div#converter fieldset {
+    text-align: center;
+}
+#converter span.label {
+    width: 120px;
+}
+#converter input, 
+#converter select {
+    width: 230px;
+    /*float: right;*/
+}
+#converter button {
+    margin: 10px;
+}
+div#quoteCont {
+    padding: 0px 10px 0px 0px;
+    /*height: 55px;*/
+    width: 60%;
+    position: absolute;
+    right: 0;
+    bottom: 80px;
+    /*background-color: cyan;*/
+}
+#quoteCont div.box {
+    outline: 2px solid lightgreen;
+    margin: 0px 110px 0px 0px;
+    padding: 5px 10px;
+    min-height: 55px;
+    height: 100%;
+    /*width: 70%;*/
+    box-shadow: 0px 0px 10px 5px rgba(150,150,150,0.5);
+}
+#quoteCont span.button {
+    border-radius: 2px;
+    margin: 0px 10px;
+    height: 20px;
+    width: 25px;
+    /*display: inline-block;*/
+    float: right;
+    background-color: red;
+    box-shadow: 1px 1px 2px 0px black;
+}
+#quoteCont span.button:nth-child(1) {
+    border: 1px solid blue;
+    background-color: pink;
+}
+#quoteCont span.button:nth-child(2) {
+    margin: 30px -35px 0px 0px;
+    border: 1px solid red;
+    background-color: seagreen;
+}
+#quoteCont span.button:nth-child(3) {
+    border: 1px solid turquoise;
+    background-color: greenyellow;
+}
+#quoteCont span.button:nth-child(4) {
+    margin: 30px -35px 0px 0px;
+    border: 1px solid maroon;
+    background-color: lightgreen;
+}
+
+
+
+
+div#a2p2 span.label {
+    width: 230px;
+}
+div#a2p3 {
+    text-align: center;
+}
+#a2p3 textarea {
+    margin: 0px 0px 10px 0px;
+    height: 200px;
+    width: 100%;
+}
+
+
+
+
+div#footer {
+    height: var(--footer-height);
+    width: 100%;
+    /*position: absolute;*/
+    /*bottom: 0;*/
+    background-color: var(--theme-color-2-light);
+}
